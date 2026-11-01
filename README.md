@@ -93,7 +93,7 @@ Visit `http://localhost:8080` in your browser.
 
 ## Live Application
 
-*Deployment forthcoming*
+[Launch Northstar](https://northstar-lycq.onrender.com/)
 
 ## Product Vision
 
