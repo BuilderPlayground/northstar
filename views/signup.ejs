@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Northstar account and start your personal decision journal.">
+  <title>Create an Account | Northstar</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-layout">
+
+    <!-- LEFT: SIGNUP FORM -->
+    <section class="auth-main">
+
+      <header class="auth-header">
+
+        <a href="/" class="auth-brand">
+          <span>northstar</span>
+          <span class="auth-logo">✳</span>
+        </a>
+
+        <a href="/" class="auth-back">← Back to home</a>
+
+      </header>
+
+      <div class="auth-content">
+
+        <p class="auth-eyebrow">
+          YOUR PERSONAL DECISION JOURNAL STARTS HERE
+        </p>
+
+        <h1>
+          Begin<br>
+          <span class="auth-accent">somewhere.</span>
+        </h1>
+
+        <p class="auth-description">
+          You don't need to have everything figured out. Create your own space to explore life's decisions, document your thinking, and find your direction.
+        </p>
+
+        <!-- AUTHENTICATION ERRORS -->
+        <% if (message && message.length > 0) { %>
+          <div class="auth-error" role="alert">
+            <%= message %>
+          </div>
+        <% } %>
+
+        <!-- SIGNUP FORM -->
+        <form action="/signup" method="POST" class="auth-form">
+
+          <div class="auth-field">
+
+            <label for="email">Email address</label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required>
+
+          </div>
+
+          <div class="auth-field">
+
+            <label for="password">Create a password</label>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Choose a password"
+              autocomplete="new-password"
+              required>
+
+          </div>
+
+          <button type="submit" class="auth-submit">
+            Create my journal
+          </button>
+
+        </form>
+
+        <p class="auth-switch">
+          Already have an account?
+          <a href="/login">Sign in</a>
+        </p>
+
+      </div>
+
+      <footer class="auth-footer">
+        NORTHSTAR ✳ — MAKE SPACE FOR WHAT MATTERS.
+      </footer>
+
+    </section>
+
+    <!-- RIGHT: NORTHSTAR BRAND EXPERIENCE -->
+    <aside class="auth-aside">
+
+      <div class="auth-aside-header">
+        <span class="auth-aside-symbol">✳</span>
+        <span>A SPACE TO FIND YOUR DIRECTION.</span>
+      </div>
+
+      <div class="auth-aside-content">
+
+        <p class="auth-aside-eyebrow">
+          THE DECISION ROOM
+        </p>
+
+        <h2>
+          Every adventure<br>
+          <span>begins somewhere.</span>
+        </h2>
+
+        <p class="auth-aside-description">
+          Some decisions are small. Others shape entire chapters of our lives. Northstar gives you room to consider your choices and reflect on the path you're creating.
+        </p>
+
+        <!-- ILLUSTRATIVE JOURNAL PREVIEW -->
+        <div class="auth-preview">
+
+          <div class="auth-preview-header">
+            <span>YOUR DECISION JOURNAL</span>
+            <span>SAMPLE PREVIEW</span>
+          </div>
+
+          <div class="auth-preview-cards">
+
+            <div class="auth-preview-card">
+              <span>CONSIDERING</span>
+              <strong>03</strong>
+            </div>
+
+            <div class="auth-preview-card">
+              <span>DECIDED</span>
+              <strong>05</strong>
+            </div>
+
+          </div>
+
+          <div class="auth-preview-bottom">
+            <span>✳</span>
+            <p>Your next chapter starts with a choice.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="auth-aside-footer">
+        YOUR CHOICES. YOUR DIRECTION. YOUR LIFE.
+      </div>
+
+    </aside>
+
+  </main>
+
+</body>
+</html>

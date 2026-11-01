@@ -1,0 +1,289 @@
+/* NORTHSTAR — LANDING PAGE */
+
+/* BASE */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fffefa;
+  color: #26343e;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.landing-eyebrow {
+  color: #687b8c;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+
+.landing-nav,
+.landing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 6%;
+  background: #f5f1ea;
+}
+
+.landing-logo {
+  color: #101b30;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.landing-nav-cta,
+.landing-primary-button,
+.landing-final-button {
+  display: inline-block;
+  padding: 15px 22px;
+  background: #101b30;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* HERO */
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 650px;
+}
+
+.landing-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 70px 10%;
+}
+
+.landing-hero h1 {
+  margin: 20px 0;
+  font-size: clamp(48px, 5.5vw, 84px);
+  line-height: 1.1;
+}
+
+.landing-hero h1 em {
+  color: #a58bb7;
+}
+
+.landing-hero-description {
+  max-width: 460px;
+  color: #687680;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.landing-primary-button {
+  margin-top: 20px;
+}
+
+.landing-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PAUSE */
+
+.landing-pause {
+  padding: 110px 8%;
+  text-align: center;
+  background: #f5f1ea;
+}
+
+.landing-pause h2 {
+  margin: 25px 0;
+  font-size: clamp(38px, 5vw, 65px);
+}
+
+.landing-pause > p:last-child {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #687680;
+}
+
+/* REFLECTION */
+
+.landing-reflection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.landing-reflection img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+}
+
+.landing-reflection-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 12%;
+  background: #edf0f4;
+}
+
+.landing-reflection h2 {
+  margin: 20px 0;
+  font-size: clamp(38px, 5vw, 65px);
+}
+
+.landing-reflection-content > p:last-child {
+  line-height: 1.8;
+  color: #687680;
+}
+
+/* CLARITY */
+
+.landing-clarity {
+  padding: 100px 8%;
+  text-align: center;
+}
+
+.landing-clarity h2 {
+  margin: 25px 0;
+  font-size: clamp(38px, 5vw, 60px);
+}
+
+.landing-clarity > p:not(.landing-eyebrow) {
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #687680;
+}
+
+.landing-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.landing-feature-grid article {
+  padding: 30px;
+  background: #f5f1ea;
+}
+
+.landing-feature-grid span {
+  color: #8c7ca2;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.landing-feature-grid h3 {
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.landing-feature-grid p {
+  color: #687680;
+  line-height: 1.7;
+}
+
+/* FINAL CALL TO ACTION */
+
+.landing-final-cta {
+  padding: 100px 8%;
+  text-align: center;
+  background: #e9e6ef;
+}
+
+.landing-final-cta h2 {
+  margin: 25px 0;
+  font-size: clamp(40px, 5vw, 65px);
+}
+
+.landing-final-cta > p:not(.landing-eyebrow) {
+  margin-bottom: 30px;
+}
+
+.landing-footer p {
+  color: #687680;
+}
+
+/* SMALLER SCREENS */
+
+@media (max-width: 800px) {
+  .landing-hero,
+  .landing-reflection {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero-content,
+  .landing-reflection-content {
+    padding: 65px 7%;
+  }
+
+  .landing-hero-image,
+  .landing-reflection img {
+    height: 400px;
+  }
+
+  .landing-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-nav,
+  .landing-footer {
+    padding: 20px 5%;
+  }
+
+  .landing-logo {
+    font-size: 22px;
+  }
+
+  .landing-nav-links {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .landing-nav-cta {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .landing-pause,
+  .landing-clarity,
+  .landing-final-cta {
+    padding: 70px 6%;
+  }
+
+  .landing-footer {
+    flex-wrap: wrap;
+  }
+}

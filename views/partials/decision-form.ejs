@@ -1,0 +1,67 @@
+<section id="new-decision" class="content-section new-decision-section">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">A PLACE TO BEGIN</p>
+            <h2>What's on your mind?</h2>
+            <p class="subtitle">
+              Give your next decision room to breathe. Capture your thoughts, explore your options, and take the next step with intention.
+            </p>
+        </div>
+    </div>
+
+    <form action="/decisions" method="POST" class="decision-form">
+
+        <label>
+            Decision title *
+            <input
+                type="text"
+                name="title"
+                placeholder="e.g. Should I pursue a new opportunity?"
+                maxlength="150"
+                required>
+        </label>
+
+        <div class="form-grid">
+
+            <label>
+                Category
+                <select name="category">
+                    <option value="Career">Career</option>
+                    <option value="Business">Business</option>
+                    <option value="Money">Money</option>
+                    <option value="Relationships">Relationships</option>
+                    <option value="Health">Health</option>
+                    <option value="Personal Growth">Personal Growth</option>
+                    <option value="Other">Other</option>
+                </select>
+            </label>
+
+            <label>
+                Decision status
+                <select name="status">
+                    <option value="Considering">Considering</option>
+                    <option value="Decided">Decided</option>
+                    <option value="Revisited">Revisited</option>
+                </select>
+            </label>
+
+        </div>
+
+        <label>
+            Your thoughts
+            <textarea
+                name="description"
+                rows="4"
+                maxlength="2000"
+                placeholder="What are you weighing? What matters most?"
+            ></textarea>
+        </label>
+
+        <button type="submit" class="primary-button">
+          Save decision →
+        </button>
+
+    </form>
+
+</section>

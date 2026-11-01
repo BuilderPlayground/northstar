@@ -1,0 +1,118 @@
+<article class="decision-card">
+
+    <div class="decision-card-header">
+      <span class="category-tag"><%= decision.category %></span>
+      <span class="status-tag"><%= decision.status %></span>
+    </div>
+
+    <h3><%= decision.title %></h3>
+
+    <p class="decision-description">
+      <%= decision.description || 'No thoughts recorded yet.' %>
+    </p>
+
+
+    <p class="decision-date">
+        RECORDED
+        <%= new Date(decision.createdAt).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+        }) %>
+    </p>
+
+    <!-- EDIT DECISION -->
+    <details class="edit-panel">
+        <summary>Edit decision</summary>
+
+        <form
+            action="/decisions/<%= decision._id %>/update"
+            method="POST"
+            class="decision-form">
+
+            <label>
+                Decision title
+                <input
+                    type="text"
+                    name="title"
+                    value="<%= decision.title %>"
+                    maxlength="150"
+                    required>
+                  </label>
+
+            <div class="form-grid">
+
+                <label>
+                    Category
+                    <select name="category">
+                        <% [
+                            'Career',
+                            'Business',
+                            'Money',
+                            'Relationships',
+                            'Health',
+                            'Personal Growth',
+                            'Other'
+                        ].forEach(function(category) { %>
+
+                            <option
+                                value="<%= category %>"
+                                <%= decision.category === category ? 'selected' : '' %>
+                            >
+                                <%= category %>
+                            </option>
+
+                        <% }) %>
+                    </select>
+                </label>
+
+                <label>
+                    Decision status
+                    <select name="status">
+                        <% [
+                            'Considering',
+                            'Decided',
+                            'Revisited'
+                        ].forEach(function(status) { %>
+
+                            <option
+                                value="<%= status %>"
+                                <%= decision.status === status ? 'selected' : '' %>
+                            >
+                                <%= status %>
+                            </option>
+
+                        <% }) %>
+                    </select>
+                </label>
+
+            </div>
+
+            <label>
+                Your thoughts
+                <textarea
+                name="description"
+                rows="3"
+                maxlength="2000"
+                ><%= decision.description %></textarea>
+            </label>
+
+            <button type="submit" class="primary-button">
+              Save changes
+            </button>
+
+        </form>
+    </details>
+
+    <!-- DELETE DECISION -->
+    <form
+        action="/decisions/<%= decision._id %>/delete"
+        method="POST"
+        onsubmit="return confirm('Are you sure you want to delete this decision?')">
+
+        <button type="submit" class="delete-button">
+          Delete decision
+        </button>
+    </form>
+
+</article>

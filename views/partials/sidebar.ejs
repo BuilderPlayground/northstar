@@ -1,0 +1,31 @@
+<aside class="sidebar">
+
+    <a href="/profile" class="wordmark">
+      northstar<span>✳</span>
+    </a>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">YOUR WORKSPACE</p>
+
+        <nav class="sidebar-nav">
+          <a href="#overview" class="nav-link active">Overview</a>
+          <a href="#decision-room" class="nav-link">Decision Room</a>
+          <a href="#my-compass" class="nav-link">My Compass</a>
+        </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+        <p class="sidebar-label">YOUR ACCOUNT</p>
+
+        <p class="account-email">
+            <%= user.local && user.local.email
+                ? user.local.email
+                : 'Northstar Member' %>
+        </p>
+
+        <a href="/logout" class="logout-link">
+          Log out →
+        </a>
+    </div>
+
+</aside>

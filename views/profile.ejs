@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northstar | Your Decision Room</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="northstar-app">
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <%- include('partials/sidebar') %>
+
+        <!-- MAIN DASHBOARD -->
+        <main class="main-content">
+
+            <!-- WELCOME -->
+            <header id="overview" class="dashboard-header">
+
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL DECISION WORKSPACE</p>
+
+                    <h1>Find your way <em>forward.</em></h1>
+
+                    <p class="subtitle">
+                        A thoughtful space to explore your options, make intentional decisions, and reconnect with your why.
+                    </p>
+                </div>
+
+                <a href="#new-decision" class="primary-button">
+                    + New Decision
+                </a>
+
+            </header>
+
+            <!-- DECISION OVERVIEW -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p class="stat-label">01 / EXPLORING</p>
+                    <h2>
+                        <%= decisions.filter(d => d.status === 'Considering').length %>
+                    </h2>
+                    <p class="stat-description">Considering</p>
+                </div>
+
+                <div class="stat-card">
+                    <p class="stat-label">02 / CHOSEN</p>
+                    <h2>
+                        <%= decisions.filter(d => d.status === 'Decided').length %>
+                    </h2>
+                    <p class="stat-description">Decided</p>
+                </div>
+
+                <div class="stat-card">
+                    <p class="stat-label">03 / REFLECTING</p>
+                    <h2>
+                        <%= decisions.filter(d => d.status === 'Revisited').length %>
+                    </h2>
+                    <p class="stat-description">Revisited</p>
+                </div>
+
+            </section>
+
+            <!-- DECISION ROOM -->
+            <section id="decision-room" class="content-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR DECISION JOURNAL</p>
+                        <h2>The Decision Room</h2>
+                        <p class="subtitle">
+                            A living record of the choices you're navigating.
+                        </p>
+                    </div>
+
+                    <span class="count-label">
+                        <%= decisions.length %>
+                        <%= decisions.length === 1 ? 'decision' : 'decisions' %>
+                    </span>
+                </div>
+
+                <% if (decisions.length === 0) { %>
+
+                    <div class="empty-state">
+                        <span class="empty-icon">✳</span>
+                        <h3>Every direction begins somewhere.</h3>
+                        <p>
+                            Your decision journal is waiting for its first entry.
+                        </p>
+                        <a href="#new-decision" class="primary-button">
+                            Record your first decision
+                        </a>
+                    </div>
+
+                <% } else { %>
+
+                    <div class="decisions-list">
+
+                        <% decisions.forEach(function(decision) { %>
+
+                            <%- include('partials/decision-card', {
+                                decision: decision
+                            }) %>
+
+                        <% }) %>
+
+                    </div>
+
+                <% } %>
+
+            </section>
+
+            <!-- NEW DECISION FORM -->
+            <%- include('partials/decision-form') %>
+
+            <!-- MY COMPASS -->
+            <section id="my-compass" class="content-section compass-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A MOMENT TO RECENTER</p>
+                        <h2>My Compass ✳</h2>
+                    </div>
+                </div>
+
+                <div class="compass-card">
+
+                    <p class="compass-intro">
+                        Not every choice needs to be made today. Sometimes clarity begins with remembering what matters to you.
+                    </p>
+
+                    <blockquote>
+                        “The direction matters more than the speed.”
+                    </blockquote>
+
+                    <p class="compass-note">
+                        Take your time. Find your direction.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+                <p>NORTHSTAR ✳ — Make space for what matters.</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
